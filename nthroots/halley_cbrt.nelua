@@ -23,7 +23,7 @@ local function halley_cbrt(x: number): number
 end
 
 local function main(): cint
-  local x = halley_cbrt(2), math.cbrt(2)
+  local x, y = halley_cbrt(2), math.cbrt(2)
   
   print(x, y)
   

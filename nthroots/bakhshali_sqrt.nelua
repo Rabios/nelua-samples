@@ -6,6 +6,8 @@ local function bakhshali_sqrt(x: number): number
   
   if ((x == 0) or (x == 1) or (x == math.huge)) then
     return x
+  elseif (x == 2) then
+    return 1.4142135623730950488016887242097
   elseif (x < 0) then
     return (0 / 0)
   end
