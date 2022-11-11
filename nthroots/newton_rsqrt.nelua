@@ -1,0 +1,35 @@
+-- https://en.wikipedia.org/wiki/Newton%27s_method
+require "math"
+
+local function newton_rsqrt(x: number): number
+  if (x == 1) then
+    return 1
+  elseif (x == 0) then
+    return math.huge
+  elseif (x == math.huge) then
+    return 0
+  elseif (x < 0) then
+    return (0 / 0)
+  end
+  
+  local res = x * 0.25
+  
+  while true do
+    local pre_res = res
+    res = res * 0.5 * (3 - (x * res * res))
+    
+    if (pre_res == res) then break end
+  end
+  
+  return res
+end
+
+local function main(): cint
+  local x, y = newton_rsqrt(2), (1 / math.sqrt(2))
+  
+  print(x, y)
+  
+  return 0
+end
+
+return main()

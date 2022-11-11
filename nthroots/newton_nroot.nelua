@@ -1,0 +1,32 @@
+-- https://en.wikipedia.org/wiki/Newton%27s_method
+require "math"
+
+local function newton_nroot(x: number, n: number): number
+  if ((x == math.huge) or (x == -math.huge) or
+      (n == math.huge) or (n == -math.huge)) then
+    return (0 / 0)
+  end
+  
+  local res = x * 0.14285714285714285714285714285714
+  
+  while true do
+    local pre_res = res
+    local a = math.pow(res, n)
+    
+    res = res - ((a - x) / (n * (a / res)))
+    
+    if (pre_res == res) then break end
+  end
+  
+  return res
+end
+
+local function main(): cint
+  local x, y = newton_nroot(2.0, 4), math.pow(2.0, 0.25)
+  
+  print(x, y)
+
+  return 0
+end
+
+return main()
