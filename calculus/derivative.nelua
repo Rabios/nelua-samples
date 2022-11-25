@@ -1,0 +1,19 @@
+local function derivative(f: function(x: number): number, x: number, dx: facultative(number)): number
+  ## if dx.type.is_niltype then
+    local dx: number <cimport "DBL_EPSILON", cinclude "<float.h>", nodecl, const>
+  ## end
+  
+  local dy = f(x + dx) - f(x)
+  
+  return dy / dx
+end
+
+local function sqr(x: number): number
+  return x * x
+end
+
+local deriv1, deriv2 = derivative(sqr, 2, 0.1), derivative(sqr, 2)
+
+print(deriv1, deriv2)
+
+return 0
