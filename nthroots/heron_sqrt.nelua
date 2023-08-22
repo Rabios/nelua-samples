@@ -1,7 +1,7 @@
--- https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
+-- https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Heron's_method
 require "math"
 
-local function babylonian_sqrt(x: number): number
+local function heron_sqrt(x: number): number
   if ((x == 0) or (x == 1) or (x == math.huge)) then
     return x
   elseif (x < 0) then
@@ -21,7 +21,7 @@ local function babylonian_sqrt(x: number): number
 end
 
 local function main(): cint
-  local x, y = babylonian_sqrt(2), math.sqrt(2)
+  local x, y = heron_sqrt(2), math.sqrt(2)
   
   print(x, y)
   
